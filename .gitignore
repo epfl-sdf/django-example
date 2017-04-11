@@ -1,0 +1,7 @@
+*.pyc
+*.mo
+.project
+.idea/
+.pydevproject
+.settings/
+.coverage
