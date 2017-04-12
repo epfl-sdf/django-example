@@ -46,5 +46,10 @@ In this example we adopt a different project layout from the tutorial, following
 * the `settings.py` file is now under `config/base.py` for exactly the same reasons as the requirements, in the futur we will need different configs depending on the environment
 
 
+## Django-tequila
+
+You can find django-tequila documentation [here](https://pypi.python.org/pypi/django-tequila/2.1.7)
+
+
 ## Contact
 Made by Gil Brechbühler. E-Mail : gil.brechbuhler@epfl.ch, do not hesitate to ask any question.
