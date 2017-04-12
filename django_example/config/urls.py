@@ -13,9 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import include, url
 from django.contrib import admin
+from django.shortcuts import render
+
+from django_tequila.urls import urlpatterns as django_tequila_urlpatterns
+
+from django_tequila.admin import TequilaAdminSite
+admin.autodiscover()
+admin.site.__class__ = TequilaAdminSite
 
 urlpatterns = [
+    url(r'^hello_world/', include('hello_world.urls')),
+    url(r'^not_allowed/', lambda request: render(request, '403.html')),
     url(r'^admin/', admin.site.urls),
 ]
+
+urlpatterns += django_tequila_urlpatterns

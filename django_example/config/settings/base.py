@@ -10,17 +10,40 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
+import json
 import os
 
+from django.core.exceptions import ImproperlyConfigured
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+# helper functions to get absolute paths
+def path_from_root(*x):
+    return os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', *x))
+
+
+BASE_DIR = path_from_root('')
+
+
+with open(path_from_root("secrets.json"), 'r') as f:
+    secrets = json.loads(f.read())
+
+
+def get_secret(setting, secrets=secrets):
+    try:
+        return secrets[setting]
+    except KeyError:
+        error_msg = "Set the {0} environnement variable".format(setting)
+        raise ImproperlyConfigured(error_msg)
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'oe2=#25mqzcgj$m6@b84m2o=^6a&y-hzdgjni+&fn_en1$^rw('
+SECRET_KEY = get_secret('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +60,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'hello_world',
+    'userprofile',
+    'django_tequila',
 ]
 
 MIDDLEWARE = [
@@ -47,14 +73,27 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_tequila.middleware.TequilaMiddleware',
 ]
 
-ROOT_URLCONF = 'django_example.urls'
+AUTHENTICATION_BACKENDS = ('django_tequila.django_backend.TequilaBackend',)
+TEQUILA_SERVICE_NAME = "Hello world and Tequila"
+LOGIN_URL = "/login"
+LOGIN_REDIRECT_URL = "/hello_world/logged"
+LOGIN_REDIRECT_IF_NOT_ALLOWED = "/not_allowed"
+LOGOUT_URL = "/hello_world"
+TEQUILA_NEW_USER_INACTIVE = True
+
+AUTH_PROFILE_MODULE = "userprofile"
+
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR + '/templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,7 +106,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'django_example.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
@@ -75,8 +114,10 @@ WSGI_APPLICATION = 'django_example.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_example',
+        'USER': 'django_example',
+        'PASSWORD': get_secret('DB_PASSWORD'),
     }
 }
 
