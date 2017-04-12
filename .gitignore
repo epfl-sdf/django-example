@@ -1,6 +1,7 @@
 *.pyc
 *.mo
 .project
+secrets.json
 .idea/
 .pydevproject
 .settings/
