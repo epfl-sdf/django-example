@@ -27,7 +27,7 @@ def path_from_root(*x):
 BASE_DIR = path_from_root('')
 
 
-with open(path_from_root("../../secrets.json"), 'r') as f:
+with open(path_from_root("../../django-example.secrets.json"), 'r') as f:
     secrets = json.loads(f.read())
 
 
@@ -48,7 +48,7 @@ SECRET_KEY = get_secret('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
