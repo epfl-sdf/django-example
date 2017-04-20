@@ -2,4 +2,4 @@
 #Démarrage de l'application
 #zf170417.1458
 
-nodemon --inspect index.js
+python django_example/manage.py runserver

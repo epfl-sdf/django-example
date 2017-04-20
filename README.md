@@ -6,9 +6,9 @@ Example of Hello World in Django with Tequila Authentication
 
 ### Virtualenv
 Create and activate a virtualenv for the project:
-    * `sudo pip install virtualenv`
-    * `virtualenv ./.virtualenv` in the project folder
-    * `source ./.virtualenv/bin/activate` to activate the virtualenv (on linux)
+    * `sudo pip3
+    * `virtualenv ./.venv` in the project folder
+    * `source ./.venv/bin/activate` to activate the virtualenv (on linux)
 Then run: `pip install -r requirements/base.txt`
 
 ### Database
