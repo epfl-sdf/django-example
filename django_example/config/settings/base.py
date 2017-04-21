@@ -27,7 +27,7 @@ def path_from_root(*x):
 BASE_DIR = path_from_root('')
 
 
-with open(path_from_root("../../django-example.secrets.json"), 'r') as f:
+with open(path_from_root("../django-example.secrets.json"), 'r') as f:
     secrets = json.loads(f.read())
 
 
@@ -79,9 +79,9 @@ MIDDLEWARE = [
 AUTHENTICATION_BACKENDS = ('django_tequila.django_backend.TequilaBackend',)
 TEQUILA_SERVICE_NAME = "Hello world and Tequila"
 LOGIN_URL = "/login"
-LOGIN_REDIRECT_URL = "/hello_world/logged"
+LOGIN_REDIRECT_URL = "/logged"
 LOGIN_REDIRECT_IF_NOT_ALLOWED = "/not_allowed"
-LOGOUT_URL = "/hello_world"
+LOGOUT_URL = "/"
 TEQUILA_NEW_USER_INACTIVE = True
 
 AUTH_PROFILE_MODULE = "userprofile"

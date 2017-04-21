@@ -24,7 +24,7 @@ admin.autodiscover()
 admin.site.__class__ = TequilaAdminSite
 
 urlpatterns = [
-    url(r'^hello_world/', include('hello_world.urls')),
+    url(r'^', include('hello_world.urls')),
     url(r'^not_allowed/', lambda request: render(request, '403.html')),
     url(r'^admin/', admin.site.urls),
 ]
