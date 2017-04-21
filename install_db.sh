@@ -1,6 +1,6 @@
 #!/bin/bash
 #Installation de l'application
-#zf170421.0938
+#zf170421.1035
 
 echo ------------ Tequila DJANGO admin user
 echo "Enter your Tequila username: " ; read zUSER
@@ -33,10 +33,11 @@ zSQL=$zSQL`echo "GRANT ALL ON django_example.* TO "django_example"@"localhost";\
 echo -e $zSQL
 mysql --user="root" --password=$DB_ROOT_PASSWORD -e "$zSQL"
 
-echo ------------ DJANGO makemigrations
+echo ------------ DJANGO make migrations
 python ./django_example/manage.py makemigrations
 python ./django_example/manage.py migrate
-python ./django_example/manage.py createsuperuser --username=$zUSER --email=$zEMAIL
+echo "from django.contrib.auth.models import User; User.objects.create_superuser('$zUSER', '=$zEMAIL', 'pass')" | python ./django_example/manage.py shell
+
 
 
 

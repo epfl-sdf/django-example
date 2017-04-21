@@ -1,9 +1,9 @@
 #!/bin/bash
 #juste on test ;-)
-#zf170420.1112
+#zf170421.1035
 
 sudo apt-get --purge -y remove mysql-server mysql-common
-#sudo apt-get --purge -y remove python3 python3-pip
+sudo apt-get --purge -y remove python3 python3-pip
 
 sudo apt-get -y autoremove
 sudo apt-get -y clean
