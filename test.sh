@@ -4,4 +4,5 @@
 
 zPASSWORD=`cat ../django-example.secrets.json | jq -r '.DB_ROOT_PASSWORD'`
 
+
 echo -e $zPASSWORD
