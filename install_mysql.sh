@@ -2,10 +2,6 @@
 #Installation de l'application
 #zf170421.1035
 
-echo ------------ Tequila DJANGO admin user
-echo "Enter your Tequila username: " ; read zUSER
-echo "Enter your email adress: " ; read zEMAIL
-
 echo ------------ credentials
 DB_ROOT_PASSWORD=`cat ../django-example.secrets.json | jq -r '.DB_ROOT_PASSWORD'`
 echo $DB_ROOT_PASSWORD
@@ -32,16 +28,3 @@ zSQL=$zSQL`echo "SET password FOR "django_example"@"localhost" = password('$DB_P
 zSQL=$zSQL`echo "GRANT ALL ON django_example.* TO "django_example"@"localhost";\n"`
 echo -e $zSQL
 mysql --user="root" --password=$DB_ROOT_PASSWORD -e "$zSQL"
-
-echo ------------ DJANGO make migrations
-python ./django_example/manage.py makemigrations
-python ./django_example/manage.py migrate
-echo "from django.contrib.auth.models import User; User.objects.create_superuser('$zUSER', '=$zEMAIL', 'pass')" | python ./django_example/manage.py shell
-
-
-
-
-#show databases
-#select user from mysql.user;
-#drop user 'django_example'@'localhost'
-#drop database django_example;
