@@ -19,9 +19,9 @@ En moins de 3mn vous avez une installation *Python/Django/Tequila* qui tourne su
 
 ### Virtualenv
 Create and activate a virtualenv for the project:
-    * `sudo pip3
-    * `virtualenv ./.venv` in the project folder
-    * `source ./.venv/bin/activate` to activate the virtualenv (on linux)
+* `sudo pip3`
+* `virtualenv ./.venv` in the project folder
+* `source ./.venv/bin/activate` to activate the virtualenv (on linux)
 Then run: `pip install -r requirements/base.txt`
 
 ### Database
