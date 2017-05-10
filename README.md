@@ -1,7 +1,7 @@
 # django-example
 Example of Hello World in Django with Tequila Authentication
 
-## Quick start pour les gens pressé
+## Quick start pour les gens pressés
 
 ```
 git clone git@github.com:epfl-sdf/django-example.git
