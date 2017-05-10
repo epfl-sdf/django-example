@@ -1,7 +1,21 @@
 # django-example
 Example of Hello World in Django with Tequila Authentication
 
+## Quick start pour les gens pressé
 
+```
+git clone git@github.com:epfl-sdf/django-example.git
+cd django-example.git
+./install_all.sh
+./start.sh
+
+```
+
+Il faut utiliser **tototutu** comme password quand on vous le demande !
+En moins de 3mn vous avez une installation *Python/Django/Tequila* qui tourne sur votre machine !  
+   
+   
+   
 ## How to make it work
 
 ### Virtualenv
