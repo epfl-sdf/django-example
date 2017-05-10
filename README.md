@@ -11,11 +11,10 @@ cd django-example.git
 
 ```
 
-Il faut utiliser **tototutu** comme password quand on vous le demande !
+Il faut utiliser **tototutu** comme password quand on vous le demande !  
 En moins de 3mn vous avez une installation *Python/Django/Tequila* qui tourne sur votre machine !  
-   
-   
-   
+<br /><br />
+
 ## How to make it work
 
 ### Virtualenv
