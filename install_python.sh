@@ -16,5 +16,6 @@ echo ------------ apt-get install python3
 sudo apt-get install -y python3 python3-pip
 
 echo ------------ install virtualenv
-sudo pip3 install virtualenv
+export LC_ALL=C
+sudo -H pip3 install virtualenv
 virtualenv ./.venv
