@@ -26,4 +26,6 @@ read -p "appuyer une touche pour continuer"
 
 
 source ./.venv/bin/activate
+
+
 python django_example/manage.py runserver 0.0.0.0:8000
