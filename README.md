@@ -1,4 +1,16 @@
-# django-example
+- [django-example](#django-example)
+  * [Quick start pour les gens pressés](#quick-start-pour-les-gens-pressés)
+  * [How to make it work](#how-to-make-it-work)
+    + [Virtualenv](#virtualenv)
+    + [Database](#database)
+    + [Secrets file](#secrets-file)
+    + [Last setups](#last-setups)
+    + [Make it run](#make-it-run)
+  * [Differences between this code and django tutorial](#differences-between-this-code-and-django-tutorial)
+  * [Django-tequila](#django-tequila)
+  * [Contact](#contact)
+  
+  # django-example
 Example of Hello World in Django with Tequila Authentication
 
 ## Quick start pour les gens pressés
