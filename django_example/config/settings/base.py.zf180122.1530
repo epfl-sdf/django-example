@@ -83,8 +83,6 @@ LOGIN_REDIRECT_URL = "/logged"
 LOGIN_REDIRECT_IF_NOT_ALLOWED = "/not_allowed"
 LOGOUT_URL = "/"
 TEQUILA_NEW_USER_INACTIVE = False
-# mettre à 'True' pour avoir la double authentification 2FA (zf180122.1536)
-TEQUILA_STRONG_AUTHENTICATION = False
 
 AUTH_PROFILE_MODULE = "userprofile"
 
@@ -161,5 +159,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
-
